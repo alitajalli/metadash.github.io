@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: 'Green Garnet',
     description: 'Life is a long dream; and jewellery is a fantasy inside a dream.',
-    siteUrl: 'https://greengarnet.org', // full path to blog - no ending slash
+    siteUrl: 'https://metadash.github.io/', // full path to blog - no ending slash
   },
   mapping: {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
