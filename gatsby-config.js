@@ -3,12 +3,12 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Casper',
-    description: 'A port of the casper blog built for gatsby',
-    siteUrl: 'https://gatsby-casper.netlify.com', // full path to blog - no ending slash
+    title: 'Green Garnet',
+    description: 'Life is a long dream; and jewellery is a fantasy inside a dream.',
+    siteUrl: 'https://greengarnet.org', // full path to blog - no ending slash
   },
   mapping: {
-    'MarkdownRemark.frontmatter.author': 'AuthorYaml.name',
+    'MarkdownRemark.frontmatter.author': 'AuthorYaml',
   },
   plugins: [
     'gatsby-plugin-sitemap',

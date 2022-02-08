@@ -22,7 +22,7 @@ import config from '../website-config';
 import { AuthorList } from '../components/AuthorList';
 
 export interface Author {
-  name: string;
+  id: string;
   bio: string;
   avatar: any;
 }
@@ -148,7 +148,7 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
           />
         )}
         <meta name="twitter:label1" content="Written by" />
-        <meta name="twitter:data1" content={post.frontmatter.author[0].name} />
+        <meta name="twitter:data1" content={post.frontmatter.author[0].id} />
         <meta name="twitter:label2" content="Filed under" />
         {post.frontmatter.tags && <meta name="twitter:data2" content={post.frontmatter.tags[0]} />}
         {config.twitter && (
@@ -181,10 +181,9 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
               <PostFullHeader className="post-full-header">
                 <PostFullTags className="post-full-tags">
                   {post.frontmatter.tags && post.frontmatter.tags.length > 0 && config.showAllTags && (
-                    post.frontmatter.tags.map((tag, idx) => (
+                    post.frontmatter.tags.map(tag => (
                       <React.Fragment key={tag}>
-                        {idx > 0 && (<>, &nbsp;</>)}
-                        <Link to={`/tags/${_.kebabCase(tag)}/`}>{tag}</Link>
+                        <Link to={`/tags/${_.kebabCase(tag)}/`}>{tag}</Link>,<b>&nbsp;</b>
                       </React.Fragment>
                     ))
                   )}
@@ -204,8 +203,8 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
                     <section className="post-full-byline-meta">
                       <h4 className="author-name">
                         {post.frontmatter.author.map(author => (
-                          <Link key={author.name} to={`/author/${_.kebabCase(author.name)}/`}>
-                            {author.name}
+                          <Link key={author.id} to={`/author/${_.kebabCase(author.id)}/`}>
+                            {author.id}
                           </Link>
                         ))}
                       </h4>
@@ -464,11 +463,13 @@ export const query = graphql`query ($slug: String, $primaryTag: String) {
         }
       }
       author {
-        name
+        id
         bio
         avatar {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, breakpoints: [40, 80, 120])
+          children {
+            ... on ImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, breakpoints: [40, 80, 120])
+            }
           }
         }
       }

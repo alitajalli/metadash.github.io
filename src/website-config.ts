@@ -15,6 +15,10 @@ export interface WebsiteConfig {
   /**
    * full url, no username
    */
+  instagram?: string;
+  /**
+   * full url, no username
+   */
   facebook?: string;
   /**
    * full url, no username
@@ -54,21 +58,22 @@ export interface WebsiteConfig {
 }
 
 const config: WebsiteConfig = {
-  title: 'Ghost',
-  description: 'The professional publishing platform',
-  coverImage: 'img/blog-cover.png',
-  logo: 'img/ghost-logo.png',
+  title: 'Green Garnet',
+  description: 'Life is a long dream, and jewellery is a fantasy inside a dream. ',
+  coverImage: 'img/greengarnetcover.png',
+  logo: 'img/greengarnet.png',
   lang: 'en',
-  siteUrl: 'https://gatsby-casper.netlify.com',
-  facebook: 'https://www.facebook.com/ghost',
-  twitter: 'https://twitter.com/tryghost',
+  siteUrl: 'https://greengarnet.org',
+  instagram: 'https://www.instagram.com/greengarnet.studio',
+  facebook: 'https://www.facebook.com/greengarnet.official',
+  twitter: 'https://twitter.com/ali19364317',
   showSubscribe: true,
   mailchimpAction:
     'https://twitter.us19.list-manage.com/subscribe/post?u=a89b6987ac248c81b0b7f3a0f&amp;id=7d777b7d75',
   mailchimpName: 'b_a89b6987ac248c81b0b7f3a0f_7d777b7d75',
   mailchimpEmailFieldName: 'MERGE0',
   googleSiteVerification: 'GoogleCode',
-  footer: 'is based on Gatsby Casper',
+  footer: 'Contact Us: +98 990 1377 600 ',
   showAllTags: true,
 };
 

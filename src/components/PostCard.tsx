@@ -50,10 +50,9 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
           <PostCardHeader className="post-card-header">
             {post.frontmatter.tags && config.showAllTags && (
               <PostCardPrimaryTag className="post-card-primary-tag">
-                {post.frontmatter.tags.map((tag, idx) => (
+                {post.frontmatter.tags.map(tag => (
                   <React.Fragment key={tag}>
-                    {idx > 0 && (<>, &nbsp;</>)}
-                    <Link to={`/tags/${_.kebabCase(tag)}/`}>{tag}</Link>
+                    <Link to={`/tags/${_.kebabCase(tag)}/`}>{tag}</Link>,<b>&nbsp;</b>
                   </React.Fragment>
                 ))}
               </PostCardPrimaryTag>
@@ -76,8 +75,8 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
           <PostCardBylineContent className="post-card-byline-content">
             <span>
               {post.frontmatter.author.map((author, index) => (
-                <React.Fragment key={author.name}>
-                  <Link to={`/author/${_.kebabCase(author.name)}/`}>{author.name}</Link>
+                <React.Fragment key={author.id}>
+                  <Link to={`/author/${_.kebabCase(author.id)}/`}>{author.id}</Link>
                   {post.frontmatter.author.length - 1 > index && ', '}
                 </React.Fragment>
               ))}
